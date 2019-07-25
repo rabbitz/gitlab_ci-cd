@@ -2,6 +2,7 @@
 
 #### Gitlab Runner
 * [Gitlab CI&CD 在前端项目自动化构建部署中的实践](https://blog.csdn.net/java060515/article/details/84065083)
+* [Gitlab Runner Executor SSH](https://docs.gitlab.com/ee/ci/ssh_keys/README.html#ssh-keys-when-using-the-docker-executor)
 
 #### [Containers](https://docs.docker.com/get-started/part2/)
 * `docker ps -all` _查看运行的容器_
@@ -12,6 +13,7 @@
 * `docker run -p -d 4000:80 friendlyhello` _同上但是采用后台模式_
 * `docker container ls` _查看活动状态的镜像_
 * `docker container ls -a` _查看所有的容器_
+* `docker container ls -q` _查看容器的 IDs_
 * `docker container stop <Container NAME or ID>` _停止指定的 Container_
 * `docker container kill <Container NAME or ID>` _强制关闭指定的 Container_
 * `docker container rm <Container NAME or ID>` _本地删除制动 Container_
@@ -25,6 +27,13 @@
 * `docker run username/repository:tag` _从远程服务器获取镜像并运行_
 
 #### [Services](https://docs.docker.com/get-started/part3/)
+* `docker stack ls` _查看 stacks 或者 apps_
+* `docker stack deploy -c <composefile> <appname>` _运行 Compose File_
+* `docker service ls` _查看 app 关联的运行中的 services_
+* `docker service ps <service>` _查看 app 关联的 tasks_
+* `docker inspect <task or container>` _检查 task 或者 container_
+* `docker stack rm <appname>` _关闭一个应用_
+* `docker swarm leave --force` _从 manager 中关闭一个 swarm_
 
 
 ### 扩展
