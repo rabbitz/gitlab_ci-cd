@@ -33,7 +33,31 @@
 * `docker service ps <service>` _查看 app 关联的 tasks_
 * `docker inspect <task or container>` _检查 task 或者 container_
 * `docker stack rm <appname>` _关闭一个应用_
-* `docker swarm leave --force` _从 manager 中关闭一个 swarm_
+* `docker swarm join` _从 manager 中关闭一个 swarm_
+
+#### [Swarms](https://docs.docker.com/get-started/part4/)
+* `docker-machine create --driver virtualbox myvm1` _创建一个 VM (Mac, Win7, Linux)_
+* `docker-machine create -d hyperv --hyperv-virtual-switch "myswitch" myvm1` _Win10_
+* `docker-machine env myvm1` _查看 VM 的基本信息_
+* `docker-machine ssh myvm1 "docker node ls"` _查看 swarm 中的 nodes 列表_
+* `docker-machine ssh myvm1 "docker node inspect <node ID>"` _检查 node 并返回其具体信息_
+* `docker-machine ssh myvm1 "docker swarm join-token -q worker"` _查看 join 的 token_
+* `docker-machine ssh myvm1` _通过 SSH 连接 VM (SSh 登录)，键入 “exit” 退出_
+* `docker node ls` _查看 swarm 中的 nodes 列表_
+* `docker-machine ssh myvm2 "docker swarm leave"` _Worker 离开 Swarm_
+* `docker-machine ssh myvm1 "socker swarm leave -f"` _Master 离开并结束 Swarm_
+* `docker-machine start myvm1` _启动当前未运行的 VM_
+* `docker-machine env myvm1` _显示 VM 的环境变量_
+* `eval $(docker-machine env myvm1)` _Mac命令 连接到指定 VM 的 shell_
+* `docker stack deploy -c <file> <app>`  _Deploy an app; command shell must be set to talk to manager (myvm1), uses local Compose file_
+* `docker-machine scp docker-compose.yml myvm1:~` _Copy file to node's home dir (only required if you use ssh to connect to manager and deploy the app)_
+* `docker-machine ssh myvm1 "docker stack deploy -c <file> <app>"`   _Deploy an app using ssh (you must have first copied the Compose file to myvm1)_
+* `eval $(docker-machine env -u)` _Disconnect shell from VMs, use native docker_
+* `docker-machine stop $(docker-machine ls -q)` _Stop all running VMs_
+* `docker-machine rm $(docker-machine ls -q)` _Delete all VMs and their disk images_
+
+
+
 
 
 ### 扩展
