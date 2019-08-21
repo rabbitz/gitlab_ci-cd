@@ -1,3 +1,8 @@
+### 相关文档
+* [docker image 和 container 的区别](https://www.cnblogs.com/bethal/p/5942369.html)
+* [docker 17.09 中文官方文档](https://docs-cn.docker.octowhale.com/)
+* [docker 文档](http://www.dockerinfo.net/document)
+
 ### 命令
 
 #### Gitlab Runner
@@ -56,11 +61,4 @@
 * `docker-machine ssh myvm1 "docker stack deploy -c <file> <app>"`   _Deploy an app using ssh (you must have first copied the Compose file to myvm1)_
 * `docker-machine stop $(docker-machine ls -q)` _Stop all running VMs_
 * `docker-machine rm $(docker-machine ls -q)` _Delete all VMs and their disk images_
-
-
-
-
-
-### 扩展
-* [docker image 和 container 的区别](https://www.cnblogs.com/bethal/p/5942369.html)
 
