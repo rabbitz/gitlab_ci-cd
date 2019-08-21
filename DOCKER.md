@@ -1,7 +1,7 @@
 ### 相关文档
 * [docker image 和 container 的区别](https://www.cnblogs.com/bethal/p/5942369.html)
-* [docker 17.09 中文官方文档](https://docs-cn.docker.octowhale.com/)
-* [docker 文档](http://www.dockerinfo.net/document)
+* [docker 17.09 中文社区文档](https://docs-cn.docker.octowhale.com/)
+* [docker 官方文档部分翻译版本](http://www.dockerinfo.net/document)
 
 ### 命令
 
