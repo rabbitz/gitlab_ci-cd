@@ -22,13 +22,15 @@
 * `docker container stop <Container NAME or ID>` _停止指定的 Container_
 * `docker container kill <Container NAME or ID>` _强制关闭指定的 Container_
 * `docker container rm <Container NAME or ID>` _本地删除制动 Container_
-* `docker contailer rm $(docker container ls -a -q)` _删除本地所有的 Container_
+* `docker container rm $(docker container ls -a -q)` _删除本地所有的 Container_
+* `docker images`
 * `docker image ls -a` _查看本地镜像_
 * `docker image rm <image id>/<Container NAME:TAG>` _通过 ID 或者 NAME:TAG 的方式删除本地的镜像_
 * `docker image rm $(docker image ls -a -q)` _删除本地所有镜像_
 * `docker login` _登录_
-* `docker tag <image> username/repository:tag` _标记本地镜像，将其归入某一仓库_
-* `docker push username/repository:tag` _上传本地镜像到仓库_
+* `docker tag <image id> username/repository:tag` _标记本地镜像，将其归入某一仓库_
+* `docker push username/repository` _上传本地所有版本（tag）镜像到仓库_
+* `docker push username/repository:tag` _上传本地指定 tag 镜像到仓库_
 * `docker run username/repository:tag` _从远程服务器获取镜像并运行_
 
 #### [Services](https://docs.docker.com/get-started/part3/)
