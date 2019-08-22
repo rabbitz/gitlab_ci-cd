@@ -9,6 +9,31 @@
 * [Gitlab CI&CD 在前端项目自动化构建部署中的实践](https://blog.csdn.net/java060515/article/details/84065083)
 * [Gitlab Runner Executor SSH](https://docs.gitlab.com/ee/ci/ssh_keys/README.html#ssh-keys-when-using-the-docker-executor)
 
+### Images
+* `docker login` _登录_
+* `docker images`
+* `docker image ls -a` _查看本地镜像_
+* `docker image rm <image id>/<Container NAME:TAG>` _通过 ID 或者 NAME:TAG 的方式删除本地的镜像_
+* `docker image rm $(docker image ls -a -q)` _删除本地所有镜像_
+* `docker rmi [OPTIONS]` _删除本地一个或者多个镜像_
+* `docker tag <image id> username/repository:tag` _标记本地镜像，将其归入某一仓库_
+* `docker push username/repository` _上传本地所有版本（tag）镜像到仓库_
+* `docker push username/repository:tag` _上传本地指定 tag 镜像到仓库_
+* `docker run username/repository:tag` _从远程服务器获取镜像并运行_
+* `docker save -o <filename> <username/repository>` _导出镜像到本地文件_
+  ``` bash
+    REPOSITORY           TAG                 IMAGE ID            CREATED             SIZE
+    9ke123/sinatra       devel               b93319b24b46        21 minutes ago      191MB
+    9ke123/sinatra       v1                  b93319b24b46        21 minutes ago      191MB
+    9ke123/sinatra       v2                  b93319b24b46        21 minutes ago      191MB
+
+    docker save -o 9ke123_sinatra.tar 9ke123/sinatra # 将全部的版本导出
+    docker save -o 9ke123_sinatra_v1.tar 9ke123/sinatras:v1 # 将指定版本的镜像导出
+  ```
+* `docker image load --input <filename> 或者 docker image load < <filename>` _从本地文件导入到镜像库中_
+
+
+
 #### [Containers](https://docs.docker.com/get-started/part2/)
 * `docker ps -all` _查看运行的容器_
 * `docker --version` _查看版本_
@@ -23,15 +48,10 @@
 * `docker container kill <Container NAME or ID>` _强制关闭指定的 Container_
 * `docker container rm <Container NAME or ID>` _本地删除制动 Container_
 * `docker container rm $(docker container ls -a -q)` _删除本地所有的 Container_
-* `docker images`
-* `docker image ls -a` _查看本地镜像_
-* `docker image rm <image id>/<Container NAME:TAG>` _通过 ID 或者 NAME:TAG 的方式删除本地的镜像_
-* `docker image rm $(docker image ls -a -q)` _删除本地所有镜像_
-* `docker login` _登录_
-* `docker tag <image id> username/repository:tag` _标记本地镜像，将其归入某一仓库_
-* `docker push username/repository` _上传本地所有版本（tag）镜像到仓库_
-* `docker push username/repository:tag` _上传本地指定 tag 镜像到仓库_
-* `docker run username/repository:tag` _从远程服务器获取镜像并运行_
+* `docker rm [OPTIONS]` _删除一个或者多个 Containers_
+
+
+
 
 #### [Services](https://docs.docker.com/get-started/part3/)
 * `docker stack ls` _查看 stacks 或者 apps_
