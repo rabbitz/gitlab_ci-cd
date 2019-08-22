@@ -32,8 +32,6 @@
   ```
 * `docker image load --input <filename> 或者 docker image load < <filename>` _从本地文件导入到镜像库中_
 
-
-
 #### [Containers](https://docs.docker.com/get-started/part2/)
 * `docker ps -all` _查看运行的容器_
 * `docker --version` _查看版本_
@@ -49,8 +47,7 @@
 * `docker container rm <Container NAME or ID>` _本地删除制动 Container_
 * `docker container rm $(docker container ls -a -q)` _删除本地所有的 Container_
 * `docker rm [OPTIONS]` _删除一个或者多个 Containers_
-
-
+* `docker exec -t <cintainer name> /bin/bash 或 <command>` _进入 container 并进入控制台或者执行其他命令_
 
 
 #### [Services](https://docs.docker.com/get-started/part3/)
