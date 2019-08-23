@@ -10,6 +10,8 @@
 * [Gitlab Runner Executor SSH](https://docs.gitlab.com/ee/ci/ssh_keys/README.html#ssh-keys-when-using-the-docker-executor)
 
 ### Images
+* `docker --version` _查看版本_
+* `docker info` 和 `docker version` _查看 docker 详细安装信息_
 * `docker login` _登录_
 * `docker images`
 * `docker image ls -a` _查看本地镜像_
@@ -31,23 +33,33 @@
     docker save -o 9ke123_sinatra_v1.tar 9ke123/sinatras:v1 # 将指定版本的镜像导出
   ```
 * `docker image load --input <filename> 或者 docker image load < <filename>` _从本地文件导入到镜像库中_
+* `docker run -it <Container NAME or ID> /bin/bash` _使用新创建的镜像来启动一个容器_
+
 
 #### [Containers](https://docs.docker.com/get-started/part2/)
 * `docker ps -all` _查看运行的容器_
-* `docker --version` _查看版本_
-* `docker info` 和 `docker version` _查看 docker 详细安装信息_
+* `docker ps -a` _查看终止状态的容器_
 * `docker build -t friendlyhello .` _使用当前文件中的 Dockerfile 创建镜像_
 * `docker run -p 4000:80 friendlyhello` _运行 friendlyhello 将端口从 4000 映射到 80_
-* `docker run -p -d 4000:80 friendlyhello` _同上但是采用后台模式_
+* `docker run -p -d 4000:80 friendlyhello` _同上但是采用后台以守护态（Daemonized）形式运行_
 * `docker container ls` _查看活动状态的镜像_
 * `docker container ls -a` _查看所有的容器_
 * `docker container ls -q` _查看容器的 IDs_
-* `docker container stop <Container NAME or ID>` _停止指定的 Container_
-* `docker container kill <Container NAME or ID>` _强制关闭指定的 Container_
-* `docker container rm <Container NAME or ID>` _本地删除制动 Container_
+* `docker container [OPTIONS] <Container NAME or ID>` _操作指定的 Container_
+  ``` bash
+    start   # 启动
+    restart # 重新启动
+    stop    # 停止
+    kill    # 强制关闭
+    attach  # 进入
+    rm      # 本地删除一个处于终止状态的容易，如果删除一个运行中的容器，需要添加 -f 参数
+  ```
 * `docker container rm $(docker container ls -a -q)` _删除本地所有的 Container_
 * `docker rm [OPTIONS]` _删除一个或者多个 Containers_
 * `docker exec -t <cintainer name> /bin/bash 或 <command>` _进入 container 并进入控制台或者执行其他命令_
+* `cat ubuntu.tar | docker import - test/ubuntu:v1.0` _从容器快照文件中导入为镜像_
+* `docker import http://example.com/exampleimage.tgz example/imagerepo` _通过指定 URL 或者某个目录来导入_
+  > 用户既可以使用 docker load 来导入镜像存储文件到本地镜像库，也可以使用 docker import 来导入一个容器快照到本地镜像库。这两者的区别在于容器快照文件将丢弃所有的历史记录和元数据信息（即仅保存容器当时的快照状态），而镜像存储文件将保存完整记录，体积也要大。此外，从容器快照文件导入时可以重新指定标签等元数据信息
 
 
 #### [Services](https://docs.docker.com/get-started/part3/)
