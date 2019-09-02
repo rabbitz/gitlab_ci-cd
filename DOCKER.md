@@ -59,7 +59,10 @@
 * `docker exec -t <cintainer name> /bin/bash 或 <command>` _进入 container 并进入控制台或者执行其他命令_
 * `cat ubuntu.tar | docker import - test/ubuntu:v1.0` _从容器快照文件中导入为镜像_
 * `docker import http://example.com/exampleimage.tgz example/imagerepo` _通过指定 URL 或者某个目录来导入_
+
   > 用户既可以使用 docker load 来导入镜像存储文件到本地镜像库，也可以使用 docker import 来导入一个容器快照到本地镜像库。这两者的区别在于容器快照文件将丢弃所有的历史记录和元数据信息（即仅保存容器当时的快照状态），而镜像存储文件将保存完整记录，体积也要大。此外，从容器快照文件导入时可以重新指定标签等元数据信息
+
+#### [Volumnes]()
 
 
 #### [Services](https://docs.docker.com/get-started/part3/)
