@@ -56,7 +56,7 @@
   ```
 * `docker container rm $(docker container ls -a -q)` _删除本地所有的 Container_
 * `docker rm [OPTIONS]` _删除一个或者多个 Containers_
-* `docker exec -t <cintainer name> /bin/bash 或 <command>` _进入 container 并进入控制台或者执行其他命令_
+* `docker exec -it <cintainer name> /bin/bash 或 <command>` _进入 container 并进入控制台或者执行其他命令_
 * `cat ubuntu.tar | docker import - test/ubuntu:v1.0` _从容器快照文件中导入为镜像_
 * `docker import http://example.com/exampleimage.tgz example/imagerepo` _通过指定 URL 或者某个目录来导入_
 
