@@ -6,9 +6,11 @@
 
 [MDN Cache-Control](https://developer.mozilla.org/zh-CN/docs/Web/HTTP/Headers/Cache-Control)
 
+[Http Caching](https://developer.mozilla.org/en-US/docs/Web/HTTP/Caching)
+
 ## 缓存目的
 
-  通过复用资源，可以提高网站和应用程序的性能。web 缓存减少了延迟和网络流量，减少显示资源所需要的时间
+  通过复用资源，可以提高网站和应用程序的性能。web 缓存减少了延迟和网络流量，减少显示资源所需要的时间(缓存机制仅仅对于 GET 请求生效)
 
   &nbsp;
 
