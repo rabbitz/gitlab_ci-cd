@@ -34,6 +34,7 @@
   ```
 * `docker image load --input <filename> 或者 docker image load < <filename>` _从本地文件导入到镜像库中_
 * `docker run -it <Container NAME or ID> /bin/bash` _使用新创建的镜像来启动一个容器_
+* `docker inspect --format '{{ .State.Pid }}' 4ddf4638572d` _当前正在运行的 Docker 容器的进程号（PID_
 
 
 #### [Containers](https://docs.docker.com/get-started/part2/)
@@ -61,6 +62,7 @@
 * `docker import http://example.com/exampleimage.tgz example/imagerepo` _通过指定 URL 或者某个目录来导入_
 
   > 用户既可以使用 docker load 来导入镜像存储文件到本地镜像库，也可以使用 docker import 来导入一个容器快照到本地镜像库。这两者的区别在于容器快照文件将丢弃所有的历史记录和元数据信息（即仅保存容器当时的快照状态），而镜像存储文件将保存完整记录，体积也要大。此外，从容器快照文件导入时可以重新指定标签等元数据信息
+
 
 #### [Volumnes]()
 
